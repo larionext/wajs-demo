@@ -28,8 +28,15 @@ Ogni utente è rappresentato da un `Client`. Perciò, per supportare più utenti
 Per avviare una sessione è necessario creare un [`Client`](https://docs.wwebjs.dev/Client.html).
 
 ```
+import { Client } from 'whatsapp-web.js';
+
 const client = new Client({
-    authStrategy: new LocalAuth()
+    authStrategy: new LocalAuth({
+        clientId: 'some-randomly-generated-unique-string';
+    }),
+    puppeteer: {
+      args: ['--no-sandbox', ],
+    }
 });
 ```
 
